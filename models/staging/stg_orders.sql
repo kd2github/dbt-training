@@ -1,5 +1,6 @@
 select
 --from raw_orders
+{{ dbt_utils.generate_surrogate_key(['orderid', 'o.customerid', 'o.productid']) }} as sk_orders,
 orderid,
 orderdate,
 shipdate,
@@ -23,5 +24,3 @@ left join {{ ref('raw_customers') }} as c
 on o.customerid = c.customerid
 left join {{ ref('raw_product') }} as p
 on o.productid = p.productid 
-
-{{limit_data_in_dev('orderdate')}}
