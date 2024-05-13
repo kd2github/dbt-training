@@ -4,4 +4,5 @@
     )
 }}
 
+
 select * from RAW.GLOBALMART.customers
