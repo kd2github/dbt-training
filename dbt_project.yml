@@ -39,6 +39,6 @@ models:
     raw:
       +materialized: table
     staging:
-      +materialized: view
+      +materialized: table
     reporting:
       +materialized: view
